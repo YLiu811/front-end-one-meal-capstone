@@ -1,11 +1,12 @@
 import React from "react";
 
-const Home = () => {
+const Home = (props) => {
+  console.log("-------");
+  console.log(props);
   return (
     <>
-      <h1>Welcome Home Page</h1>
+      <h1>{props.userProp.name}</h1>
     </>
   );
 };
-
 export default Home;

@@ -13,13 +13,16 @@ function App() {
   const fetchUser = () => {
     const userId = localStorage.getItem("userId");
     if (userId) {
-      console.log(`this is fetch `);
       axios
         .get(`${process.env.REACT_APP_BACKEND_URL}/user/${userId}`)
         .then((response) => {
-          console.log(response.data);
-          const userAPIResCopy = response.data.user;
-          setUser(userAPIResCopy);
+          console.log(response);
+          const usersAPIResCopy = response.data.map((user) => {
+            return {
+              ...user,
+            };
+          });
+          setUser(usersAPIResCopy);
         })
         .catch((error) => {
           console.log(error);
@@ -30,15 +33,11 @@ function App() {
   return (
     <div className="App">
       {/* <header className="App-header">One-Meal</header> */}
-      {/* <h1> One Meal </h1> */}
+      <h1> Hi {user.email} </h1>
       {/* <Pages /> */}
-
       <NavBar userProp={user} setUser={setUser} />
       <Routes>
-        <Route
-          path="/home"
-          element={<Home userProp={user} setUser={setUser} />}
-        />
+        <Route path="/home" element={<Home userProp={user} />} />
         <Route
           path="/signup"
           element={

@@ -22,7 +22,7 @@ export const Signup = (props) => {
       })
       .catch((error) => {
         console.log(error);
-        alert("USER Exist");
+        alert("USER Exist please log in");
       });
   };
   return (
@@ -61,3 +61,4 @@ export const Signup = (props) => {
     </div>
   );
 };
+export default Signup;

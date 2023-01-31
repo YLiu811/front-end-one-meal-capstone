@@ -13,14 +13,11 @@ export const Login = (props) => {
         email,
         password,
       })
-      .then(
-        (response) => {
-          console.log(response);
-          props.setUser(response.data);
-          localStorage.setItem("userId", response.data.user_id);
-        },
-        [props.user]
-      )
+      .then((response) => {
+        console.log(response);
+        props.setUser(response.data);
+        localStorage.setItem("userId", response.data.user_id);
+      })
       .catch((err) => {
         console.log(err);
         // setError(err.response.data.message)
@@ -54,3 +51,4 @@ export const Login = (props) => {
     </div>
   );
 };
+export default Login;

@@ -1,5 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const NavBar = (props) => {
   console.log("these are NavBar's props:", props);
@@ -7,18 +7,15 @@ const NavBar = (props) => {
     <nav>
       {props.userProp.user_id ? (
         <>
-          <h1>Hi! {props.userProp.email} </h1>
           <span
             onClick={() => {
               localStorage.removeItem("userId");
               props.setUser({});
-              alert("See you!");
-              window.location.href = "/login";
             }}
           >
-            Log out
+            Logout
           </span>
-          <Link to="/home"></Link>
+          <Link to="/home">Home</Link>
         </>
       ) : (
         <>
