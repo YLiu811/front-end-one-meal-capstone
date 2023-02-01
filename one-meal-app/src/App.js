@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import NavBar from "./Components/NavBar";
 // import Pages from "./pages/Pages";
 import axios from "axios";
+import Popular from "./Components/Popular";
 
 function App() {
   const [user, setUser] = useState({});
@@ -29,7 +30,7 @@ function App() {
   useEffect(fetchUser, []);
   // const URL = "http://127.0.0.1:5000/user";
 
-git  return (
+  return (
     <div className="App">
       {/* <header className="App-header">One-Meal</header> */}
       {/* <h1> One Meal </h1> */}
@@ -42,10 +43,14 @@ git  return (
           element={<Home userProp={user} setUser={setUser} />}
         />
         <Route
+          path="/popular"
+          element={<Popular userProp={user} setUser={setUser} />}
+        />
+        <Route
           path="/signup"
           element={
             user.user_id ? (
-              <Navigate to="/home" />
+              <Navigate to="popular" />
             ) : (
               <Signup userProp={user} setUser={setUser} />
             )
@@ -55,14 +60,13 @@ git  return (
           path="/login"
           element={
             user.user_id ? (
-              <Navigate to="/home" />
+              <Navigate to="/popular" />
             ) : (
               <Login userProp={user} setUser={setUser} />
             )
           }
         />
       </Routes>
-      <Pages />
     </div>
   );
 }

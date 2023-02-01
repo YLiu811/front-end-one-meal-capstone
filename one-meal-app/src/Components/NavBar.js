@@ -7,7 +7,7 @@ const NavBar = (props) => {
     <nav>
       {props.userProp.user_id ? (
         <>
-          <h1>Hi! {props.userProp.email} </h1>
+          <p>Hi! {props.userProp.email} </p>
           <span
             onClick={() => {
               localStorage.removeItem("userId");
@@ -18,7 +18,6 @@ const NavBar = (props) => {
           >
             Log out
           </span>
-          <Link to="/home"></Link>
         </>
       ) : (
         <>
