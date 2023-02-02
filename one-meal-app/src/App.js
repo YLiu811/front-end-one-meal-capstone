@@ -9,6 +9,7 @@ import Pages from "./pages/Pages";
 import Searched from "./pages/Searched";
 import axios from "axios";
 import Home from "./pages/Home";
+import Recipe from "./pages/Recipe";
 
 function App() {
   console.log(process.env.REACT_APP_API_KEY)
@@ -50,6 +51,7 @@ function App() {
           element={<Pages userProp={user} setUser={setUser} />}
         />
         <Route path="/searched/:input" element={<Searched />} />
+        <Route path ="/recipe/:id" element={<Recipe />} />
         <Route
           path="/signup"
           element={
@@ -64,7 +66,7 @@ function App() {
           path="/login"
           element={
             user.user_id ? (
-              <Navigate to="/home" />
+              <Navigate to="/pages" />
             ) : (
               <Login userProp={user} setUser={setUser} />
             )

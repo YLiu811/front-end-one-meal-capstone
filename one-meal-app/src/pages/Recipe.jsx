@@ -9,6 +9,7 @@ function Recipe() {
 
     const params = useParams();
     const [recipe, setRecipe] = useState({});
+    const [active, setActive] = useState('Ingredients');
 
     const getRecipe = async () => {
         const api = await fetch(`${URL}${params.id}/information?apiKey=88cbb41354b04d13858d7f377e338113`)
@@ -28,8 +29,21 @@ function Recipe() {
                 <img src={recipe.image} alt={recipe.title} />
             </div>
             <Info>
-                <Button>Ingredients</Button>
-                <Button>Instructions</Button>
+                <Button className={active === 'Ingredients' ? 'active' : ''} onClick={() => setActive('Ingredients')}>Ingredients</Button>
+                <Button className={active === 'Instructions'?' active' : ''} onClick={() => setActive('Instructions')}>Instructions</Button>
+                {/* {active === 'Instructions' && (
+                    <div>
+                        <h3 dangerouslySetInnerHTML={{__html: recipe.summary}}></h3>
+                        <h3 dangerouslySetInnerHTML={{__html: recipe.instructions}}></h3>
+                    </div>
+                )}
+                {active === 'Ingredients' && (
+                    <ul>
+                        {recipe.extendedIngredients.map((ingredient) => 
+                            <li key={ingredient.id}>{ingredient.original}</li>
+                        )}
+                    </ul>
+                )} */}
             </Info>
         </RecipeWrapper>
     );
@@ -41,7 +55,7 @@ const RecipeWrapper = styled.div`
     display: flex;
     .active{
         background-color: linear-gradient(35deg, #FFC0B9, #FF8474);
-        color: #FFF7EE;
+        color: #8FDF83;
     }
     h2{
         margin-bottom: 2rem;
@@ -55,11 +69,12 @@ const RecipeWrapper = styled.div`
     }
 `
 const Button = styled.div`
+    height: 3rem
     padding: 1rem 2rem;
     color: #A3A0CB;
     background: #FFF7EE;
     border: 2px solid #FF8474;
-    margin-right: 2rem;
+    margin-right: 2rem 0 2rem;
     font-weight: 600;
 `
 const Info = styled.div`
