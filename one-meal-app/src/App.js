@@ -48,7 +48,7 @@ function App() {
           path="/pages"
           element={<Pages userProp={user} setUser={setUser} />}
         />
-        <Route path="/searched/input" element={<Searched />} />
+        <Route path="/searched/:input" element={<Searched />} />
         <Route
           path="/signup"
           element={
