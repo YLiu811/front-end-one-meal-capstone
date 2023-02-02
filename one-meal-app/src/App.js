@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       {/* <header className="App-header">One-Meal</header> */}
-      <h1> Hi {user.email} </h1>
+      <h1>{user.email} </h1>
       {/* <Pages /> */}
       <NavBar userProp={user} setUser={setUser} />
       <Routes>

@@ -7,7 +7,6 @@ const NavBar = (props) => {
     <nav>
       {props.userProp.user_id ? (
         <>
-          <p>Hi! {props.userProp.email} </p>
           <span
             onClick={() => {
               localStorage.removeItem("userId");
