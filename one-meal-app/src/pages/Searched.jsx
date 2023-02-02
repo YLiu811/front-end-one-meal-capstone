@@ -8,8 +8,9 @@ function Searched() {
     const [searchedFood, setSearchedFood] = useState([]);
     const params = useParams();
     const getResult = async (keyword) => {
+        // const URL = "https://api.spoonacular.com/recipes/";
         const checkRecipe = localStorage.getItem('searchedFood');
-        console.log(checkRecipe);
+        console.log(`localStorage: ${checkRecipe}`);
         // if (checkRecipe) {
         //     setSearchedFood(JSON.parse(checkRecipe));
         // } else {
@@ -37,7 +38,7 @@ function Searched() {
                             </a>
                         </Card>
                     )
-                })};
+                })}
             </Grid>
         </div>
     )

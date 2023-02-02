@@ -11,6 +11,7 @@ import axios from "axios";
 import Home from "./pages/Home";
 
 function App() {
+  console.log(process.env.REACT_APP_API_KEY)
   const [user, setUser] = useState({});
   const fetchUser = () => {
     const userId = localStorage.getItem("userId");
