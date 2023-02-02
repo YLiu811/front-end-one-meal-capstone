@@ -1,12 +1,14 @@
 import React from "react";
-
-const Home = (props) => {
-  console.log("-------");
-  console.log(props);
+import Popular from "../Components/Popular";
+import Search from "../Components/Search";
+function Home() {
   return (
-    <>
-      <h1>{props.userProp.name}</h1>
-    </>
+    <div>
+      <h1>One Meal</h1>
+      <h2>Your one stop shop to a great meal</h2>
+      <Search />
+      <Popular />
+    </div>
   );
-};
+}
 export default Home;

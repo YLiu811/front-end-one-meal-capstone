@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router";
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
-import Home from "./pages/Home";
+// import Popular from "./Components/Popular";
 import NavBar from "./Components/NavBar";
-// import Pages from "./pages/Pages";
+import Pages from "./pages/Pages";
+import Searched from "./pages/Searched";
 import axios from "axios";
+import Home from "./pages/Home";
 
 function App() {
   const [user, setUser] = useState({});
@@ -37,7 +39,16 @@ function App() {
       {/* <Pages /> */}
       <NavBar userProp={user} setUser={setUser} />
       <Routes>
-        <Route path="/home" element={<Home userProp={user} />} />
+        <Route path="*" element={<Login userProp={user} setUser={setUser} />} />
+        <Route
+          path="/home"
+          element={<Home userProp={user} setUser={setUser} />}
+        />
+        <Route
+          path="/pages"
+          element={<Pages userProp={user} setUser={setUser} />}
+        />
+        <Route path="/searched/input" element={<Searched />} />
         <Route
           path="/signup"
           element={

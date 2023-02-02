@@ -11,11 +11,13 @@ const NavBar = (props) => {
             onClick={() => {
               localStorage.removeItem("userId");
               props.setUser({});
+              alert("See you!");
+              window.location.href = "/login";
             }}
           >
             Logout
           </span>
-          <Link to="/home">Home</Link>
+          <Link to="/pages">Pages</Link>
         </>
       ) : (
         <>
