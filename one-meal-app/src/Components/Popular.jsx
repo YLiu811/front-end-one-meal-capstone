@@ -6,24 +6,24 @@ import { Splide, SplideSlide} from "@splidejs/react-splide";
 import '@splidejs/react-splide/css';
 
 function Popular() {
-    // const URL = "https://api.spoonacular.com/recipes/random?";
+    const URL = "https://api.spoonacular.com/recipes/random?";
     const [popular, setPopular] = useState([])
-    useEffect(() => {
-        getPopular();
-    },[]);
 
     const getPopular = async () => {
         const checkPop = localStorage.getItem('popular');
         if (checkPop) {
             setPopular(JSON.parse(checkPop));
         } else {
-            const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.API_KEY}&number=18`)
+            const api = await fetch(`${URL}apiKey=${process.env.REACT_APP_API_KEY}&number=18`)
             const res = await api.json();
             localStorage.setItem('popular', JSON.stringify(res.recipes))
             setPopular(res.recipes);
             console.log(res.recipes);
         }
     };
+    useEffect(() => {
+        getPopular();
+    },[]);
 
     return (
         <div>
