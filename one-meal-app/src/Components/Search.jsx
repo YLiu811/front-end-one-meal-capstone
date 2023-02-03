@@ -10,6 +10,7 @@ function Search() {
     e.preventDefault();
     navigate(`/searched/${input}`);
     };
+    
     return (
         <FormStyle onSubmit={submitForm}>
             <div>

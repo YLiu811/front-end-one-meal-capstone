@@ -12,7 +12,7 @@ function Recipe() {
     const [active, setActive] = useState('Ingredients');
 
     const getRecipe = async () => {
-        const api = await fetch(`${URL}${params.id}/information?apiKey=88cbb41354b04d13858d7f377e338113`)
+        const api = await fetch(`${URL}${params.id}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
         const res = await api.json();
         console.log(res);
         setRecipe(res);
@@ -31,7 +31,7 @@ function Recipe() {
             <Info>
                 <Button className={active === 'Ingredients' ? 'active' : ''} onClick={() => setActive('Ingredients')}>Ingredients</Button>
                 <Button className={active === 'Instructions'?' active' : ''} onClick={() => setActive('Instructions')}>Instructions</Button>
-                {/* {active === 'Instructions' && (
+                {active === 'Instructions' && (
                     <div>
                         <h3 dangerouslySetInnerHTML={{__html: recipe.summary}}></h3>
                         <h3 dangerouslySetInnerHTML={{__html: recipe.instructions}}></h3>
@@ -39,11 +39,11 @@ function Recipe() {
                 )}
                 {active === 'Ingredients' && (
                     <ul>
-                        {recipe.extendedIngredients.map((ingredient) => 
+                        {recipe.extendedIngredients?.map((ingredient) => 
                             <li key={ingredient.id}>{ingredient.original}</li>
                         )}
                     </ul>
-                )} */}
+                )}
             </Info>
         </RecipeWrapper>
     );
