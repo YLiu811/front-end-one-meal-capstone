@@ -1,4 +1,6 @@
 * {
+  width: auto;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,6 +21,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  color: #36474F;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #FFF7EE;
+  display: flex;
+}
+
+img {
+  transition: all 0.2s ease-in-out;
+  margin: 0.5rem;
+}
+
+img:hover {
+  transform: scale(1.08);
+}
+
+nav {
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
 
 h4 {
   font-size: 1.3rem;
@@ -28,4 +57,16 @@ h4 {
 }
 a{
   color: #A3A0CB;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.searched {
+  width: 100%;
 }

@@ -1,9 +1,0 @@
-form{
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    /* border: 1px rebeccapurple solid; */
-}
-form * {
-    margin: 15px 80px;
-}

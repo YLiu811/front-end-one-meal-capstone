@@ -18,7 +18,7 @@ const NavBar = (props) => {
           >
             Log out
           </span>
-          <Link to="/home"></Link>
+          {/* <Link to="/home"></Link> */}
         </>
       ) : (
         <>
