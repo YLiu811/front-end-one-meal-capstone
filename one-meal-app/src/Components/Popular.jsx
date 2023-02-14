@@ -9,23 +9,24 @@ import Favorite from './Favorite';
 function Popular() {
     // const URL = "https://api.spoonacular.com/recipes/random?";
     const [popular, setPopular] = useState([])
-    useEffect(() => {
-        getPopular();
-    },[]);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const getPopular = async () => {
-        // const checkPop = localStorage.getItem('popular');
-        // if (checkPop) {
-        //     setPopular(JSON.parse(checkPop));
-        // } else {
+        const checkPop = localStorage.getItem('popular');
+        if (checkPop) {
+            setPopular(JSON.parse(checkPop));
+        } else {
             const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=51d0e725a5f9407891c4892e29d1c70a&number=24`)
             const res = await api.json();
             localStorage.setItem('popular', JSON.stringify(res.recipes))
             setPopular(res.recipes);
             console.log(`res.recipes: ${res.recipes}`);
         }
-        // console.log(`popular: ${popular}`);
-    // };
+        console.log(`popular: ${popular}`);
+    };
+    useEffect(() => {
+        getPopular();
+    },[getPopular]);
 
 
     return (
